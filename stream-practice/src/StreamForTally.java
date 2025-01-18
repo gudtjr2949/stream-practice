@@ -15,7 +15,7 @@ public class StreamForTally {
     // 1. 다음 리스트의 총합을 구하세요.
     static void solve1() {
         List<Integer> numbers = Arrays.asList(10, 20, 30, 40);
-        int sum = numbers.stream().mapToInt(number -> number).sum();
+        int sum = numbers.stream().collect(Collectors.summingInt(Integer::intValue));
         System.out.println("1번 : " + sum);
     }
 
@@ -33,9 +33,7 @@ public class StreamForTally {
     static void solve3() {
         List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
         double avg = numbers.stream()
-                .mapToInt(number -> number)
-                .average()
-                .orElseThrow();
+                .collect(Collectors.averagingDouble(Integer::intValue));
         System.out.println("3번 : " + avg);
     }
 
