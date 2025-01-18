@@ -32,14 +32,7 @@ public class StreamToResult {
     }
 
     public static void main(String[] args) {
-        List<Person> persons = Arrays.asList(
-                new Person("jack", 21),
-                new Person("lee", 11),
-                new Person("kim", 55),
-                new Person("tony", 34),
-                new Person("gabi", 29),
-                new Person("amy", 61),
-                new Person("jack", 24));
+        List<Person> persons = createPersons();
 
         // 이름에 a가 포함된 사람의 나이 총합 (대신 이름이 중복된 사람이 있는 경우 더 어린 사람의 나이를 선택함)
         int ageSum = persons.stream()
@@ -53,5 +46,16 @@ public class StreamToResult {
                 .sum();
 
         System.out.println(ageSum);
+    }
+
+    private static List<Person> createPersons() {
+        return Arrays.asList(
+                new Person("jack", 21),
+                new Person("lee", 11),
+                new Person("kim", 55),
+                new Person("tony", 34),
+                new Person("gabi", 29),
+                new Person("amy", 61),
+                new Person("jack", 24));
     }
 }
